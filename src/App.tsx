@@ -36,6 +36,7 @@ import { useEffect } from 'react';
 import { setToggleDrawerAction } from './Store/Actions';
 import { State } from './Shared/Types';
 import SideBarComponent from './SideBar/SideBarComponent';
+import { Grid } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -129,22 +130,30 @@ export default function App() {
         <CssBaseline />
         <AppBar position="fixed" open={toggleDrawer} style={{ background: '#FFFFFF', color: '#404040' }}>
           <Toolbar>
-            <IconButton
-              color='inherit'
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                marginRight: 5,
-                ...(toggleDrawer && { display: 'none' }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap component="div">
-              Jane Doe
-              <AccountCircleIcon />
-            </Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={9} md={9}>
+                <IconButton
+                  color='inherit'
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  sx={{
+                    marginRight: 5,
+                    ...(toggleDrawer && { display: 'none' }),
+                  }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Grid>
+              <Grid item xs={1} md={1}>
+                <Typography variant="h6" noWrap component="div">
+                  Jane Doe
+                </Typography>
+              </Grid>
+              <Grid item xs={1} md={1}>
+                <AccountCircleIcon />
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={toggleDrawer}>
@@ -156,7 +165,19 @@ export default function App() {
           <Divider />
           <List>
             <Link to="/">
-                <SideBarComponent item={'Dashboard'}/>
+              <SideBarComponent item={'Dashboard'} />
+            </Link>
+            <Link to="/">
+              <SideBarComponent item={'Reports'} />
+            </Link>
+            <Link to="/">
+              <SideBarComponent item={'Sensors'} />
+            </Link>
+            <Link to="/">
+              <SideBarComponent item={'Users'} />
+            </Link>
+            <Link to="/">
+              <SideBarComponent item={'Settings'} />
             </Link>
           </List>
         </Drawer>

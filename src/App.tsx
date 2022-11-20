@@ -35,7 +35,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setToggleDrawerAction } from './Store/Actions';
 import { State } from './Shared/Types';
-import SideBarComponent from './SideBar/SideBarComponent';
+import SideBarComponent from './Shared/SideBar';
 import { Grid } from '@mui/material';
 
 const drawerWidth = 240;
@@ -126,12 +126,11 @@ export default function App() {
 
   return (
     <Router>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar position="fixed" open={toggleDrawer} style={{ background: '#FFFFFF', color: '#404040' }}>
+      <Box sx={{ display: 'flex', flexGrow: 1 }}>
+        <AppBar sx={{ flexGrow: 1 }} position="fixed" open={toggleDrawer} style={{ background: '#FFFFFF', color: '#404040' }}>
           <Toolbar>
-            <Grid container spacing={2}>
-              <Grid item xs={9} md={9}>
+            <Grid sx={{ display: 'flex', flexGrow: 1 }} container spacing={0}>
+              <Grid item xs={10} md={10}>
                 <IconButton
                   color='inherit'
                   aria-label="open drawer"
@@ -185,8 +184,8 @@ export default function App() {
           <DrawerHeader />
           <Routes>
             <Route path="/add-sensor" element={<AddSensorComponent />} />
-            <Route path="/edit-sensor" element={<EditSensorComponent />} />
-            <Route path="/sensor-details" element={<SensorDetailsComponent />} />
+            <Route path="/edit-sensor/:sensorId" element={<EditSensorComponent />} />
+            <Route path="/sensor-detail/:sensorId" element={<SensorDetailsComponent />} />
             <Route path="/" element={<DashboardComponent />} />
           </Routes>
         </Box>

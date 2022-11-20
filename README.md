@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# The sensor dashboard challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Mock API server should be up and running at port 3009 before starting the app.
+You can change the API url and port from src > Shared > Constants > Constants.ts > BASE_URL
+
+## Routes/URLS
+
+Dashboard: / \
+AddSensor: /add-sensor \
+EditSensor: /edit-sensor/:sensorId \
+SensorDetails: /sensor-detail/:sensorId 
 
 ## Available Scripts
 

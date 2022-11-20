@@ -1,10 +1,11 @@
 
+
 const DashboardComponent = () => {
   return (
     <div>
-        DashboardComponent
+     DashboardComponent
     </div>
   );
-}
+};
 
 export default DashboardComponent;
